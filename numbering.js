@@ -6,8 +6,11 @@ class Numbering {
         this.pad = pad;
     }
     get(idx) {
-        const s = `0000000000${idx}`
-        const idxNumber = s.substr(s.length - this.pad);
+        let idxNumber = idx;
+        if (idxNumber.toString().length <= this.pad) {
+            const s = `0000000000${idx}`
+            idxNumber = s.substr(s.length - this.pad);
+        }
         return `${this.prefix}${idxNumber}${this.postfix}`;
     }
 };

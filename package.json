@@ -1,11 +1,15 @@
 {
   "name": "@danbraj/numbering",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "numbering.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "author": "danbraj",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "test": "mocha ./*.test.js"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0"
+  }
 }
