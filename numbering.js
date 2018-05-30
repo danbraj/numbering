@@ -1,13 +1,10 @@
-
-const numbering = {
-    prefix: '',
-    postfix: '',
-    pad: 0,
-    prepare(prefix, postfix, pad) {
+class Numbering {
+    
+    constructor(prefix, postfix, pad) {
         this.prefix = prefix;
         this.postfix = postfix;
         this.pad = pad;
-    },
+    }
     get(idx) {
         const s = `0000000000${idx}`
         const idxNumber = s.substr(s.length - this.pad);
@@ -15,20 +12,15 @@ const numbering = {
     }
 };
 
-const recon = (content, idx) => {
+const prep = (prefix, postfix, pad = 0) => {
+    
+    return new Numbering(prefix, postfix, pad);
+};
 
-    const re = /(.*[^0-9])([0-9]+)([^0-9]*\.[a-z]{3,4})$/;
+const recog = (content) => {
 
-    const res = re.exec(content);
-    if (res) {
+    const res = /(.*[^0-9])([0-9]+)([^0-9]*)$/.exec(content);
+    return res ? new Numbering(res[1], res[3], res[2].length) : null;
+};
 
-        const s = `0000000000${idx}`
-        const idxNumber = s.substr(s.length - res[2].length);
-        return `${res[1]}${idxNumber}${res[3]}`;
-        
-    } else {
-        return null;
-    }
-}
-
-module.exports = { numbering, recon };
+module.exports = { prep, recog };
