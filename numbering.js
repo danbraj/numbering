@@ -6,12 +6,7 @@ class Numbering {
         this.pad = pad;
     }
     get(idx) {
-        let idxNumber = idx;
-        if (idxNumber.toString().length <= this.pad) {
-            const s = `0000000000${idx}`
-            idxNumber = s.substr(s.length - this.pad);
-        }
-        return `${this.prefix}${idxNumber}${this.postfix}`;
+        return `${this.prefix}${idx.toString().padStart(this.pad, '0')}${this.postfix}`;
     }
 };
 
@@ -22,8 +17,8 @@ const prep = (prefix, postfix, pad = 0) => {
 
 const recog = (content) => {
 
-    const res = /(.*[^0-9])([0-9]+)([^0-9]*)$/.exec(content);
-    return res ? new Numbering(res[1], res[3], res[2].length) : null;
+    const res = /(.*[^0-9]|)([0-9]+)([^0-9]*)$/.exec(content);
+    return res ? new Numbering(res[1], res[3], res[2].length) : -1;
 };
 
 module.exports = { prep, recog };

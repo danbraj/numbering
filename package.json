@@ -1,10 +1,13 @@
 {
   "name": "@danbraj/numbering",
-  "version": "0.0.1",
-  "description": "",
-  "main": "numbering.js",
+  "version": "0.1.0",
+  "description": "Package for numbering elements",
   "author": "danbraj",
   "license": "MIT",
+  "main": "numbering.js",
+  "files": [
+    "numbering.js"
+  ],
   "scripts": {
     "test": "mocha ./*.test.js"
   },
