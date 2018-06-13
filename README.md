@@ -2,7 +2,8 @@
 
 ## Installation
 
-`npm install danbraj/numbering`
+`npm install danbraj/numbering`\
+`npm install danbraj/numbering#0.1.0`
 
 ## Usage
 
