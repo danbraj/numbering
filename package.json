@@ -8,6 +8,9 @@
   "files": [
     "numbering.js"
   ],
+  "repository": {
+    "url": "git://github.com/danbraj/numbering.git"
+  },
   "scripts": {
     "test": "mocha ./*.test.js"
   },
